@@ -774,12 +774,6 @@
 function openApp() {
   document.getElementById("splash").classList.add("hide");
   document.getElementById("app").classList.add("show");
-
-  const audio = document.getElementById("player");
-  if (audio) {
-    audio.volume = 0.7;
-    audio.play().catch(err => console.log("Audio blocked:", err));
-  }
 }
 
   // Windows
