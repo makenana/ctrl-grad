@@ -771,10 +771,16 @@
   }
 
   // Splash -> App
-  function openApp() {
-    document.getElementById('splash').classList.add('hide');
-    document.getElementById('app').classList.add('show');
+function openApp() {
+  document.getElementById("splash").classList.add("hide");
+  document.getElementById("app").classList.add("show");
+
+  const audio = document.getElementById("player");
+  if (audio) {
+    audio.volume = 0.7;
+    audio.play().catch(err => console.log("Audio blocked:", err));
   }
+}
 
   // Windows
   function openWin(id) {
@@ -860,7 +866,9 @@
       submitBtn.textContent = '[ SEND RSVP ]';
     }
   });
-
+<audio id="player">
+  <source src="/assets/20Something.mp3" type="audio/mpeg">
+</audio>
 
 </script>
 </body>
