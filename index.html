@@ -581,7 +581,7 @@
   <!-- Desktop -->
   <div class="desktop">
     <div class="desktop-icons">
-      <div class="desktop-icon" onclick="openWin('invite-win')">
+      <div class="desktop-icon" onclick="openWin('invite-win'); switchTab('invite')">
         <div class="icon-img"><img src="assets/mailicon2.png" alt="" style="width:48px;height:48px;object-fit:contain;"></div>
       </div>
       <div class="desktop-icon" onclick="openWin('invite-win'); switchTab('music')">
@@ -745,6 +745,15 @@
   }
   updateClock();
   setInterval(updateClock, 30000);
+
+  // Visitor Counter
+  function updateVisitorCount() {
+    let count = parseInt(localStorage.getItem('visitorCount')) || 847;
+    count++;
+    localStorage.setItem('visitorCount', count);
+    document.querySelector('.splash-counter').textContent = 'VISITOR #' + String(count).padStart(6, '0');
+  }
+  updateVisitorCount();
 
   // Start -> back to splash
   function goHome() {
